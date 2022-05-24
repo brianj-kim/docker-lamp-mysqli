@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  db:
+    image: mysql:5.7.38
+    environment:
+      MYSQL_ROOT_PASSWORD: love12
+    volumes:
+      - ./db-data/:/var/lib/mysql
+    ports:
+      - 3306:3306
+  www:
+    image: php:7.4.29-apache
+    volumes:
+      - './codebase/:/var/www/html'
+
+    ports:
+      - 80:80
+      - 443:443
